@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="script.js" defer></script>
+
+
+    <title>Exchange calculator</title>
+</head>
+
+<body>
+    <form class="form">
+        <fieldset>
+            <legend>Kwota do przeliczenia</legend>
+            <label>Kwota: <input type="number" class="pole" placeholder="Wprowadź kwotę" required min="1" step="0.01" value="1"></label>
+            <input type="number" class="pole2" placeholder="Wybierz walutę" required readonly value="2.5">
+            <p>Wybrana waluta: <span class="wybrana_waluta"></span></p>
+        </fieldset>
+        <fieldset>
+            <legend>Wybierz walutę</legend>
+            <label>
+                <input class="euro" type="radio" name="kursy_walut" value="euro" checked> Euro: <span
+                    class="kursy__euro">2.5</span>
+            </label>
+            <label>
+                <input class="dolar" type="radio" name="kursy_walut" value="dolar"> Dolar: <span
+                    class="kursy__dolar">3.5</span>
+            </label>
+            <label>
+                <input class="frank" type="radio" name="kursy_walut" value="frank"> Frank: <span
+                    class="kursy__frank">4.5</span>
+            </label>
+
+        </fieldset>
+
+<fieldset>
+    <legend>Wersja lista</legend>
+    <select class="lista-kursy" name="kursy-walut" size="1"> 
+        <option class="lista-kursy__euro" value="euro">Euro (Eur)</option>
+        <option value="dolar">Dolar (Dol)</option>
+        <option value="frank">Frank (Fr)</option>
+    </select>
+    <p>Wybrana waluta z listy:<span class="lista-kursy-wybrana"></span></p>
+</fieldset>
+
+
+        <div class="kursy">
+            <p>Aktualny kurs walut</p>
+            <ul>
+                <li class="kursy__item">Euro: <span class="kursy__euro">2.5</span></li>
+                <li class="kursy__item">Dolar: <span class="kursy__dolar">3.5</span></li>
+                <li class="kursy__item">Frank: <span class="kursy__frank">4.5</span></li>
+            </ul>
+            <button type="submit">Wylicz</button><button class="buttonReset" type="reset">Wyczyść</button>
+            <p>Wynik: <span class="wynik"></span></p>
+        </div>
+    </form>
+</body>
+
+</html>
