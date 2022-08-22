@@ -2,19 +2,11 @@
 // let kursEuro = document.querySelector(".kursy__euro").innerText;
 // let kursDolar = document.querySelector(".kursy__dolar").innerText;
 // let kursFrank = document.querySelector(".kursy__frank").innerText;
-
-
-
 // let buttonReset = document.querySelector(".buttonReset");
 // let wybranaWalutaKurs = document.querySelector(".wybrana_waluta--kurs");
-
-
-
 // let pole3 = Number(kursEuro);
 // let pole4 = +kursEuro;
-
 // Sprawdzenie zawartości pola input przez wartośc value
-
 // convertedAmount.value
 // let wybranaWaluta = document.querySelector(".wybrana_waluta");
 let exchangeForm = document.querySelector(".js-form");
@@ -28,6 +20,7 @@ let euroCurrency = document.querySelector(".js-euro");
 let dolarCurrency = document.querySelector(".js-dolar");
 let frankCurrency = document.querySelector(".js-frank");
 let formResult = document.querySelector(".js-summaryResult");
+let formSummaryConvertedAmount = document.querySelector(".js-summaryConvertedAmount");
 let selectedCurrency = document.querySelector(".js-selectedCurrency");
 let selectedCurrencyPrice = document.querySelector(".js-selectedCurrencyPrice");
 let selectedCurrencyRate = document.querySelector(".js-selectedCurrencyRate");
@@ -127,7 +120,7 @@ exchangeForm.addEventListener("input", () => {
 
 exchangeForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    let przeliczenie
+    let przeliczenie = +convertedAmount.value * (1 / kurs_eur);
 
     switch(currencyConverter){
         case "eur":
@@ -146,8 +139,9 @@ exchangeForm.addEventListener("submit", (event) => {
 
 
     // let przeliczenie = +pole.value * +pole2.value;
+    formSummaryConvertedAmount.innerText = `${convertedAmount.value} PLN = `;
+    formResult.innerText = `${przeliczenie.toFixed(2)} ${selectedCurrency.innerText}`;
 
-    formResult.innerText = `${convertedAmount.value}PLN = ${przeliczenie.toFixed(2)} ${selectedCurrency.innerText}`;
 })
 
 //  buttonReset.addEventListener("click", () => {

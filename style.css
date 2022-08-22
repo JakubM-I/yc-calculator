@@ -7,42 +7,140 @@ html {
     box-sizing: inherit;
 }
 
-.pole:focus{
+/* .exchangeForm__convertedAmount:focus{
     outline: 1px solid red;
+    border: red;
+} */
+.exchangeCalculator{
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.exchangeCalculator__title{
+    width: fit-content;
+    margin: 35px auto 0;
+    font-size: min(max(10.52vw, 28px), 32px);  
 }
 
 .exchangeForm{
-    max-width: 600px;
+    max-width: 620px;
     width: 100%;
-    margin: 0 auto;
+    margin: 25px auto 0;
+}
+
+@media screen and (max-width: 450px) {
+    .exchangeForm{
+        flex-direction: column;
+    }
+}
+
+.exchangeForm__legend{
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    background: #DEDEDC;
+    box-shadow: 0px 0px 10px -4px;
+    color:#615355;
+    position: absolute;
+    top: 7px;
+    left: 10px;
+    font-size: min(max(4.26vw, 13px), 16px);
+}
+
+@media screen and (max-width: 450px) {
+    .exchangeForm__legend{
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        top: 10px;
+        text-align: center;
+    }
+}
+
+.exchangeForm__dataInput{
+    background: #F4F4F4;
+    color: #615355;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 17px -7px #615355;
+    position: relative;
+}
+
+@media screen and (max-width: 450px) {
+    .exchangeForm__dataInput{
+        margin: 0 10px;
+    }
+}
+
+.exchangeForm__itemSet{
+    min-height: 215px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+@media screen and (max-width: 450px) {
+    .exchangeForm__itemSet{
+        min-height: 255px;
+    }
+}
+
+
+.exchangeForm__form{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 450px) {
+    .exchangeForm__form{
+        flex-direction: column;
+    }
+}
+
+.exchangeForm__convertedLabel{
+    text-align: center;
+    font-size:min(max(6.10vw, 16px), 20px);
+}
+
+.exchangeForm__arrow{
+    width: 40px;
+    margin: 0 20px;
+}
+
+@media screen and (max-width: 450px) {
+    .exchangeForm__arrow{
+        display: none;
+    }
+}
+
+.exchangeForm__currencySwitch{
+    list-style: none;
+    padding-left: 0px;
+}
+
+@media screen and (max-width: 450px) {
+    .exchangeForm__currencySwitch{
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+    }
 }
 
 input[type="radio"]:checked + .exchangeForm__label{
     font-weight: 700;
     color: #CF0A10;
 }
-.exchangeForm__itemSet{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
 
-.exchangeForm__items{
-    flex-basis: 250px;
-}
-
-.exchangeForm__convertedLabel{
-    text-align: center;
-    font-size: 20px;
-}
-
-.exchangeForm__currencySwitch{
-    list-style: none;
+.exchangeForm__currencies{
+    padding-bottom: 5px;
 }
 
 .exchangeForm__convertedAmount{
-    width: 100px;
+    width: 120px;
     height: 50px;
     font-size: 22px;
     padding: 4px;
@@ -54,12 +152,25 @@ input[type="radio"]:checked + .exchangeForm__label{
     text-align: center;
 }
 
-.buttonWylicz{
+.exchangeForm__summaryResult{
+    font-size: 22px;
+    margin-top: 0px;
+}
+
+.exchangeForm__summaryAmount{
+    font-weight: 700;
+}
+
+.exchangeForm__summaryInformation{
+    font-size: 13px;
+}
+
+.exchangeForm__buttonSubmit{
     width: 150px;
     padding: 15px 10px;
     display: block;
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 25px;
     background-color: #F7BC13;
     border: none;
     color: #CF0A10;
@@ -68,6 +179,6 @@ input[type="radio"]:checked + .exchangeForm__label{
     font-weight: 600;
 }
 
-.wynik{
+/* .wynik{
     text-align: center;
-}
+} */

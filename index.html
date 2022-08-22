@@ -17,44 +17,50 @@
     <title>Exchange calculator</title>
 </head>
 
-<body>
-    <h1>Kalkuator walutowy</h1>
+<body class="exchangeCalculator">
+    <h1 class="exchangeCalculator__title">Kalkuator walutowy</h1>
     <form class="exchangeForm js-form">
-        <fieldset class="exchangeForm__itemSet">
+        <fieldset class="exchangeForm__dataInput">
             <legend class="exchangeForm__legend">Przelicz złotówki na wybraną walutę</legend>
-            <label class="exchangeForm__items exchangeForm__convertedLabel">Kwota: <input type="number" class="exchangeForm__convertedAmount js-convertedAmount" placeholder="Wprowadź kwotę" required value="1" step="0.01"></label>
-            <!-- <input type="text" class="pole2" placeholder="Wybierz walutę" required readonly value="2.5"> -->
-            <ul class="exchangeForm__items exchangeForm__currencySwitch">
-                <li> 
-                    <input class="js-euro" id="euro" type="radio" name="exchange_rate" value="euro" checked>  
-                    <label class="exchangeForm__label" for="euro">Euro</label>
-                    <!-- <span class="kursy__euro"></span> -->
-                
-                </li>
-                <li>
-                    <input class="js-dolar" id="dolar" type="radio" name="exchange_rate" value="dolar">
-                    <label class="exchangeForm__label" for="dolar">Dolar</label>
-                    <!-- <span class="kursy__dolar"></span÷> -->
-
-                </li>
-                <li>
-                    <input class="js-frank" id="frank" type="radio" name="exchange_rate" value="frank">
-                    <label class="exchangeForm__label" for="frank">Frank</label>
-                    <!-- <span class="kursy__frank"></span> -->
-                    
-                </li>
-            </ul>
-            <div class="exchangeForm__items exchangeForm__summary">
-                <p class="exchangeForm__summaryResult js-summaryResult"></p>
-                <!-- <p>Wybrana waluta: <span class="wybrana_waluta">EUR</span></p> -->
-                <p>1 PLN = <span class="js-selectedCurrencyPrice"></span> <span class="js-selectedCurrency"></span> według średniego kursu NBP <span class="js-selectedCurrencyRate"></span> PLN z dnia 19.08.2022r.</p>
-                <!-- <p>Kurs walut z dnia: 21.08.2022r.</p> -->
+            
+            <div class="exchangeForm__itemSet">
+                <div class="exchangeForm__form">
+                    <label class="exchangeForm__items exchangeForm__convertedLabel">Kwota w PLN: <input type="number" class="exchangeForm__convertedAmount js-convertedAmount" placeholder="Wprowadź kwotę" required value="1" step="0.01"></label>
+                    <!-- <input type="text" class="pole2" placeholder="Wybierz walutę" required readonly value="2.5"> -->
+                    <img class="exchangeForm__arrow" src="/picture/arrow-icon.png">
+                    <ul class="exchangeForm__items exchangeForm__currencySwitch">
+                        <li class="exchangeForm__currencies"> 
+                            <input class="js-euro" id="euro" type="radio" name="exchange_rate" value="euro" checked>  
+                            <label class="exchangeForm__label" for="euro">Euro</label>
+                            <!-- <span class="kursy__euro"></span> -->
+                        
+                        </li>
+                        <li class="exchangeForm__currencies">
+                            <input class="js-dolar" id="dolar" type="radio" name="exchange_rate" value="dolar">
+                            <label class="exchangeForm__label" for="dolar">Dolar</label>
+                            <!-- <span class="kursy__dolar"></span÷> -->
+        
+                        </li>
+                        <li class="exchangeForm__currencies">
+                            <input class="js-frank" id="frank" type="radio" name="exchange_rate" value="frank">
+                            <label class="exchangeForm__label" for="frank">Frank</label>
+                            <!-- <span class="kursy__frank"></span> -->
+                            
+                        </li>
+                    </ul>
+                </div>
+                <div class="exchangeForm__items exchangeForm__summary">
+                    <p class="exchangeForm__summaryResult">
+                        <span class="js-summaryConvertedAmount"></span>
+                        <span class="exchangeForm__summaryAmount js-summaryResult"></span>
+                    </p>
+                    <p class="exchangeForm__summaryInformation">1 PLN = <span class="js-selectedCurrencyPrice"></span> <span class="js-selectedCurrency"></span> według średniego kursu NBP <span class="js-selectedCurrencyRate"></span> PLN z dnia 19.08.2022r.</p>
+                </div>
             </div>
 
         </fieldset>
 
-        <button class="buttonWylicz" type="submit">Wylicz</button>
-        <!-- <p class="wynik"></p> -->
+        <button class="exchangeForm__buttonSubmit" type="submit">Wylicz</button>
         </div>
     </form>
 </body>
