@@ -105,6 +105,10 @@ html {
     border: 1px solid #000;   
 }
 
+.exchangeForm__convertedAmount::placeholder{
+    font-size: 14px;
+}
+
 .exchangeForm__arrow{
     width: 40px;
     margin: 0 20px;
