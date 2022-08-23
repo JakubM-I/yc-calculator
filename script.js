@@ -66,4 +66,5 @@ exchangeForm.addEventListener("reset", (event) => {
     formSummaryConvertedAmount.innerText = "";
     formResult.innerText = "";
     convertedAmount.value = 1;
+    euroCurrency.checked = true;
 })
