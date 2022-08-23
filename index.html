@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="style.css" rel="stylesheet" type="text/css">
     <link rel="icon" href="/picture/currency-exchange-icon.png">
     <script src="script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
-
 
     <title>Exchange calculator</title>
 </head>
@@ -22,30 +23,25 @@
     <form class="exchangeForm js-form">
         <fieldset class="exchangeForm__dataInput">
             <legend class="exchangeForm__legend">Przelicz złotówki na wybraną walutę</legend>
-            
+
             <div class="exchangeForm__itemSet">
                 <div class="exchangeForm__form">
-                    <label class="exchangeForm__items exchangeForm__convertedLabel">Kwota w PLN: <input type="number" class="exchangeForm__convertedAmount js-convertedAmount" placeholder="Wprowadź kwotę" required value="1" step="0.01"></label>
-                    <!-- <input type="text" class="pole2" placeholder="Wybierz walutę" required readonly value="2.5"> -->
-                    <img class="exchangeForm__arrow" src="/picture/arrow-icon.png">
+                    <label class="exchangeForm__items exchangeForm__convertedLabel">Kwota w PLN: <input type="number"
+                            class="exchangeForm__convertedAmount js-convertedAmount" placeholder="Wprowadź kwotę"
+                            required value="1" step="0.01"></label>
+                    <img class="exchangeForm__arrow" src="picture/arrow-icon.png">
                     <ul class="exchangeForm__items exchangeForm__currencySwitch">
-                        <li class="exchangeForm__currencies"> 
-                            <input class="js-euro" id="euro" type="radio" name="exchange_rate" value="euro" checked>  
+                        <li class="exchangeForm__currencies">
+                            <input class="js-euro" id="euro" type="radio" name="exchange_rate" value="euro" checked>
                             <label class="exchangeForm__label" for="euro">Euro</label>
-                            <!-- <span class="kursy__euro"></span> -->
-                        
                         </li>
                         <li class="exchangeForm__currencies">
                             <input class="js-dolar" id="dolar" type="radio" name="exchange_rate" value="dolar">
                             <label class="exchangeForm__label" for="dolar">Dolar</label>
-                            <!-- <span class="kursy__dolar"></span÷> -->
-        
                         </li>
                         <li class="exchangeForm__currencies">
                             <input class="js-frank" id="frank" type="radio" name="exchange_rate" value="frank">
                             <label class="exchangeForm__label" for="frank">Frank</label>
-                            <!-- <span class="kursy__frank"></span> -->
-                            
                         </li>
                     </ul>
                 </div>
@@ -54,12 +50,13 @@
                         <span class="js-summaryConvertedAmount"></span>
                         <span class="exchangeForm__summaryAmount js-summaryResult"></span>
                     </p>
-                    <p class="exchangeForm__summaryInformation">1 PLN = <span class="js-selectedCurrencyPrice"></span> <span class="js-selectedCurrency"></span> według średniego kursu NBP <span class="js-selectedCurrencyRate"></span> PLN z dnia 19.08.2022r.</p>
+                    <p class="exchangeForm__summaryInformation">1 PLN = <span class="js-selectedCurrencyPrice"></span>
+                        <span class="js-selectedCurrency"></span> według średniego kursu NBP <span
+                            class="js-selectedCurrencyRate"></span> PLN z dnia 19.08.2022r.</p>
                 </div>
             </div>
 
         </fieldset>
-
         <button class="exchangeForm__buttonSubmit" type="submit">Wylicz</button>
         </div>
     </form>

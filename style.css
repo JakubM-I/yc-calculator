@@ -7,10 +7,6 @@ html {
     box-sizing: inherit;
 }
 
-/* .exchangeForm__convertedAmount:focus{
-    outline: 1px solid red;
-    border: red;
-} */
 .exchangeCalculator{
     width: 100%;
     max-width: 1000px;
@@ -87,7 +83,6 @@ html {
     }
 }
 
-
 .exchangeForm__form{
     display: flex;
     flex-wrap: nowrap;
@@ -153,7 +148,7 @@ input[type="radio"]:checked + .exchangeForm__label{
 }
 
 .exchangeForm__summaryResult{
-    font-size: 22px;
+    font-size: min(max(6vw, 18px), 22px);
     margin-top: 0px;
 }
 
@@ -178,7 +173,3 @@ input[type="radio"]:checked + .exchangeForm__label{
     font-size: 20px;
     font-weight: 600;
 }
-
-/* .wynik{
-    text-align: center;
-} */
