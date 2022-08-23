@@ -56,18 +56,13 @@ html {
 }
 
 .exchangeForm__dataInput{
+    margin: 0 10px;
     background: #F4F4F4;
     color: #615355;
     border: none;
     border-radius: 10px;
     box-shadow: 0px 0px 17px -7px #615355;
     position: relative;
-}
-
-@media screen and (max-width: 450px) {
-    .exchangeForm__dataInput{
-        margin: 0 10px;
-    }
 }
 
 .exchangeForm__itemSet{
@@ -101,6 +96,15 @@ html {
     font-size:min(max(6.10vw, 16px), 20px);
 }
 
+.exchangeForm__convertedAmount{
+    width: 120px;
+    height: 50px;
+    font-size: 22px;
+    padding: 4px;
+    border-radius: 5px;
+    border: 1px solid #000;   
+}
+
 .exchangeForm__arrow{
     width: 40px;
     margin: 0 20px;
@@ -112,9 +116,27 @@ html {
     }
 }
 
+input[type="radio"]{
+    cursor: pointer;
+}
+
+input[type="radio"]:checked + .exchangeForm__label{
+    font-weight: 700;
+    color: #615355;
+}
+
+.exchangeForm__currencies{
+    padding-bottom: 5px;
+}
+
+.exchangeForm__label{
+    cursor: pointer;
+}
+
 .exchangeForm__currencySwitch{
     list-style: none;
     padding-left: 0px;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 450px) {
@@ -123,24 +145,6 @@ html {
         justify-content: space-evenly;
         width: 100%;
     }
-}
-
-input[type="radio"]:checked + .exchangeForm__label{
-    font-weight: 700;
-    color: #CF0A10;
-}
-
-.exchangeForm__currencies{
-    padding-bottom: 5px;
-}
-
-.exchangeForm__convertedAmount{
-    width: 120px;
-    height: 50px;
-    font-size: 22px;
-    padding: 4px;
-    border-radius: 5px;
-    border: 1px solid #000;
 }
 
 .exchangeForm__summary{
@@ -166,10 +170,27 @@ input[type="radio"]:checked + .exchangeForm__label{
     display: block;
     margin: 0 auto;
     margin-top: 25px;
-    background-color: #F7BC13;
+    background-color: #615355;
     border: none;
-    color: #CF0A10;
+    color: #DEDEDC;
     border-radius: 5px;
     font-size: 20px;
     font-weight: 600;
+    cursor: pointer;
+}
+
+.exchangeForm__buttonReset{
+    width: fit-content;
+    display: block;
+    background: none;
+    border: none;
+    margin: 0 auto;
+    margin-top: 10px;
+    color: #908A8C;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.exchangeForm__buttonReset:hover{
+    color: #615355;
 }

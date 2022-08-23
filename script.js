@@ -41,22 +41,29 @@ exchangeForm.addEventListener("input", () => {
 
 exchangeForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    let przeliczenie = +convertedAmount.value * (1 / kurs_eur);
+    let currencyCount = +convertedAmount.value * (1 / kurs_eur);
 
     switch(currencyConverter){
         case "eur":
-        przeliczenie = +convertedAmount.value * (1 / kurs_eur);
+        currencyCount = +convertedAmount.value * (1 / kurs_eur);
         break;
 
         case "dol":
-        przeliczenie = +convertedAmount.value * (1 / kurs_dol);
+        currencyCount = +convertedAmount.value * (1 / kurs_dol);
         break;
 
         case "chf":
-        przeliczenie = +convertedAmount.value * (1 / kurs_chf);
+        currencyCount = +convertedAmount.value * (1 / kurs_chf);
         break;
     }
 
     formSummaryConvertedAmount.innerText = `${convertedAmount.value} PLN = `;
-    formResult.innerText = `${przeliczenie.toFixed(2)} ${selectedCurrency.innerText}`;
+    formResult.innerText = `${currencyCount.toFixed(2)} ${selectedCurrency.innerText}`;
+})
+
+exchangeForm.addEventListener("reset", (event) => {
+    event.preventDefault();
+    formSummaryConvertedAmount.innerText = "";
+    formResult.innerText = "";
+    convertedAmount.value = 1;
 })
