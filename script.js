@@ -21,20 +21,10 @@ let currencyConverter;
 exchangeForm.addEventListener("input", () => {
     
     if (euroCurrency.checked === true) {
-        selectedCurrency.innerText = "EUR";
-        selectedCurrencyPrice.innerText = (1 / kurs_eur).toFixed(3);
-        selectedCurrencyRate.innerText = kurs_eur; 
         currencyConverter = "eur";
-    }
-    else if (dolarCurrency.checked === true) {
-        selectedCurrency.innerText = "DOL";
-        selectedCurrencyPrice.innerText = (1 / kurs_dol).toFixed(3);
-        selectedCurrencyRate.innerText = kurs_dol; 
+    } else if (dolarCurrency.checked === true) {
         currencyConverter = "dol";
     } else if (frankCurrency.checked === true) {
-        selectedCurrency.innerText = "CHF";
-        selectedCurrencyPrice.innerText = (1 / kurs_chf).toFixed(3);
-        selectedCurrencyRate.innerText = kurs_chf;
         currencyConverter = "chf";
     }
 })
@@ -46,14 +36,23 @@ exchangeForm.addEventListener("submit", (event) => {
     switch(currencyConverter){
         case "eur":
         currencyCount = +convertedAmount.value * (1 / kurs_eur);
+        selectedCurrency.innerText = "EUR";
+        selectedCurrencyPrice.innerText = (1 / kurs_eur).toFixed(3);
+        selectedCurrencyRate.innerText = kurs_eur; 
         break;
 
         case "dol":
         currencyCount = +convertedAmount.value * (1 / kurs_dol);
+        selectedCurrency.innerText = "DOL";
+        selectedCurrencyPrice.innerText = (1 / kurs_dol).toFixed(3);
+        selectedCurrencyRate.innerText = kurs_dol; 
         break;
 
         case "chf":
         currencyCount = +convertedAmount.value * (1 / kurs_chf);
+        selectedCurrency.innerText = "CHF";
+        selectedCurrencyPrice.innerText = (1 / kurs_chf).toFixed(3);
+        selectedCurrencyRate.innerText = kurs_chf;
         break;
     }
 
@@ -67,4 +66,5 @@ exchangeForm.addEventListener("reset", (event) => {
     formResult.innerText = "";
     convertedAmount.value = 1;
     euroCurrency.checked = true;
+    selectedCurrency.innerText = "EUR";
 })
