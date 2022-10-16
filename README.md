@@ -1,4 +1,4 @@
-## Jakub Musiałowski Home Page
+## Currency calculator 
 ---
 Welcome to my currency calculator making during Frontend Developer course on YouCode.pl.
 
