@@ -7,6 +7,14 @@ html {
     box-sizing: inherit;
 }
 
+body{
+    background-image: url(../picture/background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 100vh; */
+}
+
 .exchangeCalculator{
     width: 100%;
     max-width: 1000px;
@@ -162,10 +170,15 @@ input[type="radio"]:checked + .exchangeForm__label{
 
 .exchangeForm__summaryAmount{
     font-weight: 700;
+    text-transform: uppercase;
 }
 
 .exchangeForm__summaryInformation{
     font-size: 13px;
+}
+
+.exchangeForm__summaryCurrency{
+    text-transform: uppercase;
 }
 
 .exchangeForm__buttonSubmit{
@@ -190,11 +203,11 @@ input[type="radio"]:checked + .exchangeForm__label{
     border: none;
     margin: 0 auto;
     margin-top: 10px;
-    color: #908A8C;
+    color: hsl(340, 3%, 42%);
     text-decoration: underline;
     cursor: pointer;
 }
 
 .exchangeForm__buttonReset:hover{
-    color: #615355;
+    color: hsl(351, 8%, 55%);
 }

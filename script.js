@@ -1,70 +1,112 @@
-let exchangeForm = document.querySelector(".js-form");
+{
+    const currencySelection = () => {
+        const euroCurrency = document.querySelector(".js-euro");
+        const dolarCurrency = document.querySelector(".js-dolar");
+        const frankCurrency = document.querySelector(".js-frank");
 
-let kurs_eur = 4.7480;
-let kurs_dol = 4.7061;
-let kurs_chf = 4.9159;
-let convertedAmount = document.querySelector(".js-convertedAmount");
-let euroCurrency = document.querySelector(".js-euro");
-let dolarCurrency = document.querySelector(".js-dolar");
-let frankCurrency = document.querySelector(".js-frank");
-let formResult = document.querySelector(".js-summaryResult");
-let formSummaryConvertedAmount = document.querySelector(".js-summaryConvertedAmount");
-let selectedCurrency = document.querySelector(".js-selectedCurrency");
-let selectedCurrencyPrice = document.querySelector(".js-selectedCurrencyPrice");
-let selectedCurrencyRate = document.querySelector(".js-selectedCurrencyRate");
+        if (euroCurrency.checked === true) {
+            return "eur";
+        }
 
-selectedCurrencyPrice.innerText = (1 / kurs_eur).toFixed(3);
-selectedCurrency.innerText = "EUR";
-selectedCurrencyRate.innerText = kurs_eur;
+        if (dolarCurrency.checked === true) {
+            return "dol";
+        }
+        if (frankCurrency.checked === true) {
+            return "chf";
+        };
+    };
 
-let currencyConverter;
-exchangeForm.addEventListener("input", () => {
-    
-    if (euroCurrency.checked === true) {
-        currencyConverter = "eur";
-    } else if (dolarCurrency.checked === true) {
-        currencyConverter = "dol";
-    } else if (frankCurrency.checked === true) {
-        currencyConverter = "chf";
-    }
-})
+    const currencyRateSelect = (selectCurrency) => {
+        const kurs_eur = 4.7480;
+        const kurs_dol = 4.7061;
+        const kurs_chf = 4.9159;
 
-exchangeForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    let currencyCount = +convertedAmount.value * (1 / kurs_eur);
+        switch (selectCurrency) {
+            case "eur":
+                return kurs_eur;
 
-    switch(currencyConverter){
-        case "eur":
-        currencyCount = +convertedAmount.value * (1 / kurs_eur);
-        selectedCurrency.innerText = "EUR";
-        selectedCurrencyPrice.innerText = (1 / kurs_eur).toFixed(3);
-        selectedCurrencyRate.innerText = kurs_eur; 
-        break;
+            case "dol":
+                return kurs_dol;
 
-        case "dol":
-        currencyCount = +convertedAmount.value * (1 / kurs_dol);
-        selectedCurrency.innerText = "DOL";
-        selectedCurrencyPrice.innerText = (1 / kurs_dol).toFixed(3);
-        selectedCurrencyRate.innerText = kurs_dol; 
-        break;
+            case "chf":
+                return kurs_chf;
+        }
+    };
 
-        case "chf":
-        currencyCount = +convertedAmount.value * (1 / kurs_chf);
-        selectedCurrency.innerText = "CHF";
-        selectedCurrencyPrice.innerText = (1 / kurs_chf).toFixed(3);
-        selectedCurrencyRate.innerText = kurs_chf;
-        break;
-    }
+    const currencyCalculate = (selectCurrency, convertedAmount, selectCurrencyRate) => {
 
-    formSummaryConvertedAmount.innerText = `${convertedAmount.value} PLN = `;
-    formResult.innerText = `${currencyCount.toFixed(2)} ${selectedCurrency.innerText}`;
-})
+        switch (selectCurrency) {
+            case "eur":
+                return +convertedAmount.value * (1 / selectCurrencyRate);
 
-exchangeForm.addEventListener("reset", (event) => {
-    event.preventDefault();
-    formSummaryConvertedAmount.innerText = "";
-    formResult.innerText = "";
-    convertedAmount.value = 1;
-    euroCurrency.checked = true;
-    selectedCurrency.innerText = "EUR";
-})
+            case "dol":
+                return +convertedAmount.value * (1 / selectCurrencyRate);
+
+            case "chf":
+                return +convertedAmount.value * (1 / selectCurrencyRate);
+        }
+    };
+
+    const currencyCalculateInfo = (selectCurrency, selectCurrencyRate) => {
+        const selectedCurrency = document.querySelector(".js-selectedCurrency");
+        const selectedCurrencyPrice = document.querySelector(".js-selectedCurrencyPrice");
+        const selectedCurrencyRate = document.querySelector(".js-selectedCurrencyRate");
+
+        selectedCurrency.innerText = selectCurrency;
+        selectedCurrencyPrice.innerText = (1 / selectCurrencyRate).toFixed(3);
+        selectedCurrencyRate.innerText = selectCurrencyRate.toFixed(3);
+    };
+
+    const summaryCalculatedInfo = (formSummaryConvertedAmount, convertedAmount, formSummaryResult, calculatedCurrency, selectCurrency) => {
+        formSummaryConvertedAmount.innerText = `${convertedAmount.value} PLN = `;
+        formSummaryResult.innerText = `${calculatedCurrency.toFixed(2)} ${selectCurrency}`;
+    };
+
+    const exchangeCalculateResult = (exchangeForm, convertedAmount, formSummaryConvertedAmount, formSummaryResult) => {
+        exchangeForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const selectCurrency = currencySelection();
+            const selectCurrencyRate = currencyRateSelect(selectCurrency);
+            const calculatedCurrency = currencyCalculate(selectCurrency, convertedAmount, selectCurrencyRate);
+
+            currencyCalculateInfo(selectCurrency, selectCurrencyRate);
+            summaryCalculatedInfo(formSummaryConvertedAmount, convertedAmount, formSummaryResult, calculatedCurrency, selectCurrency);
+        })
+    };
+
+    const defaultFormValue = () => {
+        const selectCurrency = currencySelection();
+        const selectCurrencyRate = currencyRateSelect(selectCurrency);
+
+        currencyCalculateInfo(selectCurrency, selectCurrencyRate);
+    };
+
+    const formFieldRestore = (formSummaryConvertedAmount, formSummaryResult, convertedAmount) => {
+        const euroCurrency = document.querySelector(".js-euro");
+
+        formSummaryConvertedAmount.innerText = "";
+        formSummaryResult.innerText = "";
+        convertedAmount.value = 1;
+        euroCurrency.checked = true;
+    };
+
+    const calculatorFormReset = (exchangeForm, formSummaryConvertedAmount, formSummaryResult, convertedAmount) => {
+        exchangeForm.addEventListener("reset", () => {
+            formFieldRestore(formSummaryConvertedAmount, formSummaryResult, convertedAmount);
+            defaultFormValue();
+        });
+    };
+
+    const init = () => {
+        defaultFormValue();
+        const exchangeForm = document.querySelector(".js-form");
+        const convertedAmount = document.querySelector(".js-convertedAmount");
+
+        const formSummaryResult = document.querySelector(".js-summaryResult");
+        const formSummaryConvertedAmount = document.querySelector(".js-summaryConvertedAmount");
+        exchangeCalculateResult(exchangeForm, convertedAmount, formSummaryConvertedAmount, formSummaryResult);
+        calculatorFormReset(exchangeForm, formSummaryConvertedAmount, formSummaryResult, convertedAmount);
+    };
+    init();
+};
